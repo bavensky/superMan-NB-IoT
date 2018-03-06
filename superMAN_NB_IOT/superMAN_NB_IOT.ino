@@ -15,7 +15,7 @@ String serverPort = "===censor===";
 AIS_NB_IoT AISnb;
 AIS_NB_IoT_RES resp;
 
-const long interval = 5000;  //millisecond
+const long interval = 60000;  //millisecond
 unsigned long previousMillis = 0;
 
 long cnt = 0;
@@ -54,7 +54,7 @@ void loop()
 
   unsigned long currentMillis = millis();
 
-  if (currentMillis - previousMillis >= interval)
+  if (currentMillis - previousMillis >= 10 * interval)
   {
     field1 = dht.readTemperature();
     field2 = dht.readHumidity();
